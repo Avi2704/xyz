@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detection — ExoDetect</title>
+  <meta name="description" content="Visualize raw and detrended light curves, the BLS periodogram and detected periodic dips.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="starfield"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="ExoDetect logo"><span>ExoDetect<small>Transit Intelligence</small></span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pipeline.html">Pipeline</a>
+        <a href="detection.html">Detection</a>
+        <a href="classification.html">Classification</a>
+        <a href="parameters.html">Parameters</a>
+        <a href="report.html">Report</a>
+        <a class="btn btn-primary btn-sm nav-cta" href="pipeline.html">Launch pipeline</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <section class="page-head">
+    <div class="container">
+      <div class="breadcrumbs"><a href="index.html">Home</a> <span>/</span> <a href="dashboard.html">Dashboard</a> <span>/</span> <span>Detection</span></div>
+      <div class="flex justify-between items-center" style="flex-wrap:wrap; gap:16px;">
+        <div>
+          <h1>Signal detection</h1>
+          <p class="lead">Target <span class="mono" style="color:var(--accent-3)">TIC 261136679</span> · Sector 41 · 120 s cadence</p>
+        </div>
+        <div class="flex gap-sm">
+          <span class="badge badge-teal"><span class="dot"></span>3 transits found</span>
+          <span class="badge badge-gold"><span class="dot"></span>SNR 14.7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Raw -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="panel reveal">
+        <div class="panel-head">
+          <div><h3>Raw light curve</h3><span class="muted" style="font-size:.85rem;">Photon + detector noise dominate; dips are not visible by eye.</span></div>
+          <span class="badge badge-red"><span class="dot"></span>SNR ≈ 2.1</span>
+        </div>
+        <div class="panel-body"><img class="chart-frame" src="assets/img/chart-raw.svg" alt="Raw noisy TESS light curve"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detrended -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="panel reveal">
+        <div class="panel-head">
+          <div><h3>Detrended light curve</h3><span class="muted" style="font-size:.85rem;">After trend removal &amp; sigma-clipping, three equally spaced dips emerge.</span></div>
+          <span class="badge badge-teal"><span class="dot"></span>SNR 14.7</span>
+        </div>
+        <div class="panel-body"><img class="chart-frame" src="assets/img/chart-detrended.svg" alt="Detrended light curve with three detected transits"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Periodogram + metrics -->
+  <section class="section-sm">
+    <div class="container grid" style="grid-template-columns: 1.5fr 1fr; gap:24px;">
+      <div class="panel reveal">
+        <div class="panel-head"><div><h3>BLS periodogram</h3><span class="muted" style="font-size:.85rem;">Box Least Squares power vs. trial period</span></div></div>
+        <div class="panel-body"><img class="chart-frame" src="assets/img/chart-periodogram.svg" alt="BLS periodogram with a dominant peak"></div>
+      </div>
+      <div class="panel reveal">
+        <div class="panel-head"><h3>Detection metrics</h3></div>
+        <div class="panel-body">
+          <div class="grid" style="gap:16px;">
+            <div class="flex justify-between"><span class="muted">Best period</span><span class="mono" style="color:var(--text-0)">8.214 d</span></div>
+            <div class="meter"><span style="width:88%; background:var(--accent-3);"></span></div>
+            <div class="flex justify-between"><span class="muted">Signal-to-noise</span><span class="mono" style="color:var(--text-0)">14.7 σ</span></div>
+            <div class="meter"><span style="width:74%; background:var(--gold);"></span></div>
+            <div class="flex justify-between"><span class="muted">False-alarm prob.</span><span class="mono" style="color:var(--text-0)">3.1 × 10⁻⁵</span></div>
+            <div class="meter"><span style="width:12%; background:var(--accent);"></span></div>
+            <div class="flex justify-between"><span class="muted">Transits observed</span><span class="mono" style="color:var(--text-0)">3</span></div>
+          </div>
+          <div class="divider"></div>
+          <a class="btn btn-primary btn-sm" href="classification.html" style="width:100%;">Classify this signal →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method note -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="glass reveal" style="padding:30px;">
+        <span class="eyebrow">Method</span>
+        <h3 class="mt-sm">How the dip is found</h3>
+        <p class="muted mt-sm" style="max-width:80ch;">The flux series is normalised and detrended, then a Box Least Squares search evaluates a grid of trial periods, epochs and durations. The period that maximises the BLS power is adopted, and the signal-to-noise ratio is computed from the fitted depth relative to the scatter of the out-of-transit baseline. A low false-alarm probability and a coherent, repeating dip are required before a candidate proceeds to classification.</p>
+        <div class="flex gap mt">
+          <a class="btn btn-ghost btn-sm" href="pipeline.html">← Back to pipeline</a>
+          <a class="btn btn-ghost btn-sm" href="parameters.html">See fitted parameters →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="brand" href="index.html"><img src="assets/img/logo.svg" alt=""><span>ExoDetect<small>Transit Intelligence</small></span></a><p class="muted mt-sm" style="max-width:38ch;">An AI-driven pipeline for detecting and classifying exoplanet transit signals in noisy astronomical light curves.</p></div>
+        <div><h5>Pipeline</h5><a href="pipeline.html">Run pipeline</a><a href="detection.html">Detection</a><a href="classification.html">Classification</a><a href="parameters.html">Parameters</a></div>
+        <div><h5>Explore</h5><a href="dashboard.html">Dashboard</a><a href="report.html">Reports</a><a href="index.html">Overview</a></div>
+        <div><h5>Data</h5><a href="https://archive.stsci.edu/tess/tic_ctl.html" target="_blank" rel="noopener">MAST TESS archive ↗</a><a href="https://tess.mit.edu/" target="_blank" rel="noopener">TESS mission ↗</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span data-year>2026</span> ExoDetect · Problem Statement 7.</span><span class="mono">v1.0 · TESS photometry pipeline</span></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

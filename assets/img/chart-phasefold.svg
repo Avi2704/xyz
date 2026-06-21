@@ -1,0 +1,30 @@
+<svg width="860" height="340" viewBox="0 0 860 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Phase-folded transit with model fit">
+  <defs>
+    <linearGradient id="pf" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffce5b"/><stop offset="1" stop-color="#ff9d3b"/></linearGradient>
+  </defs>
+  <rect width="860" height="340" rx="14" fill="#0a0d1a"/>
+  <g stroke="#1b2440" stroke-width="1">
+    <line x1="70" y1="70" x2="810" y2="70"/><line x1="70" y1="140" x2="810" y2="140"/>
+    <line x1="70" y1="210" x2="810" y2="210"/><line x1="70" y1="280" x2="810" y2="280"/>
+    <line x1="440" y1="50" x2="440" y2="300" stroke-dasharray="4 5"/>
+  </g>
+  <line x1="70" y1="50" x2="70" y2="300" stroke="#2a3457" stroke-width="1.5"/>
+  <line x1="70" y1="300" x2="810" y2="300" stroke="#2a3457" stroke-width="1.5"/>
+  <text x="26" y="180" fill="#8b96bd" font-family="monospace" font-size="12" transform="rotate(-90 26 180)">Relative flux</text>
+  <text x="440" y="328" fill="#8b96bd" font-family="monospace" font-size="12" text-anchor="middle">Orbital phase</text>
+  <text x="84" y="40" fill="#ffce5b" font-family="monospace" font-size="12">PHASE-FOLDED · P = 8.214 d</text>
+
+  <!-- scattered binned data points (gray) around baseline + dip -->
+  <g fill="#6b76a0">
+    <circle cx="110" cy="118" r="2.4"/><circle cx="150" cy="122" r="2.4"/><circle cx="190" cy="116" r="2.4"/><circle cx="230" cy="121" r="2.4"/>
+    <circle cx="270" cy="119" r="2.4"/><circle cx="310" cy="123" r="2.4"/><circle cx="350" cy="124" r="2.4"/><circle cx="380" cy="160" r="2.4"/>
+    <circle cx="400" cy="208" r="2.4"/><circle cx="420" cy="232" r="2.4"/><circle cx="440" cy="236" r="2.4"/><circle cx="460" cy="231" r="2.4"/>
+    <circle cx="480" cy="206" r="2.4"/><circle cx="500" cy="158" r="2.4"/><circle cx="530" cy="122" r="2.4"/><circle cx="570" cy="118" r="2.4"/>
+    <circle cx="610" cy="124" r="2.4"/><circle cx="650" cy="117" r="2.4"/><circle cx="690" cy="122" r="2.4"/><circle cx="730" cy="119" r="2.4"/>
+    <circle cx="770" cy="121" r="2.4"/>
+  </g>
+  <!-- model fit (smooth trapezoid) -->
+  <path d="M90 120 L370 120 Q380 120 390 150 L410 224 Q415 234 425 234 L455 234 Q465 234 470 224 L490 150 Q500 120 510 120 L790 120"
+        fill="none" stroke="url(#pf)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="448" y="258" fill="#ffce5b" font-family="monospace" font-size="11" text-anchor="middle">depth 9.8 mmag</text>
+</svg>

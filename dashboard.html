@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — ExoDetect</title>
+  <meta name="description" content="Mission overview dashboard: sector statistics, candidate counts and classification breakdown.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="starfield"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="ExoDetect logo"><span>ExoDetect<small>Transit Intelligence</small></span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pipeline.html">Pipeline</a>
+        <a href="detection.html">Detection</a>
+        <a href="classification.html">Classification</a>
+        <a href="parameters.html">Parameters</a>
+        <a href="report.html">Report</a>
+        <a class="btn btn-primary btn-sm nav-cta" href="pipeline.html">Launch pipeline</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <section class="page-head">
+    <div class="container">
+      <div class="breadcrumbs"><a href="index.html">Home</a> <span>/</span> <span>Dashboard</span></div>
+      <div class="flex justify-between items-center" style="flex-wrap:wrap; gap:16px;">
+        <div>
+          <h1>Mission dashboard</h1>
+          <p class="lead">Sector 41 · high-cadence (120 s) · processed 6 hours ago</p>
+        </div>
+        <div class="flex gap-sm">
+          <span class="badge badge-green"><span class="dot"></span> Pipeline healthy</span>
+          <a class="btn btn-ghost btn-sm" href="pipeline.html">Re-run</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI cards -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="grid grid-4 reveal">
+        <div class="card"><span class="label muted" style="font-size:.8rem; text-transform:uppercase; letter-spacing:.08em;">Light curves</span><div class="num mono" style="font-size:2rem; color:var(--text-0); margin-top:6px;" data-count="24580">0</div><span class="muted" style="font-size:.85rem;">stars in sector</span></div>
+        <div class="card"><span class="label muted" style="font-size:.8rem; text-transform:uppercase; letter-spacing:.08em;">Dips detected</span><div class="num mono" style="font-size:2rem; color:var(--accent-3); margin-top:6px;" data-count="1043">0</div><span class="muted" style="font-size:.85rem;">periodic signals</span></div>
+        <div class="card"><span class="label muted" style="font-size:.8rem; text-transform:uppercase; letter-spacing:.08em;">Planet candidates</span><div class="num mono" style="font-size:2rem; color:var(--accent); margin-top:6px;" data-count="312">0</div><span class="muted" style="font-size:.85rem;">classified as transit</span></div>
+        <div class="card"><span class="label muted" style="font-size:.8rem; text-transform:uppercase; letter-spacing:.08em;">Mean SNR</span><div class="num mono" style="font-size:2rem; color:var(--gold); margin-top:6px;" data-count="11.8" data-decimals="1">0</div><span class="muted" style="font-size:.85rem;">across candidates</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breakdown + chart -->
+  <section class="section-sm">
+    <div class="container grid" style="grid-template-columns: 1.4fr 1fr; gap:24px;">
+      <div class="panel reveal">
+        <div class="panel-head">
+          <div><h3>Signal classification breakdown</h3><span class="muted" style="font-size:.85rem;">1,043 detected periodic dips</span></div>
+          <a class="btn btn-ghost btn-sm" href="classification.html">Details →</a>
+        </div>
+        <div class="panel-body">
+          <!-- transit -->
+          <div style="margin-bottom:18px;">
+            <div class="flex justify-between" style="margin-bottom:6px;"><span class="badge badge-teal"><span class="dot"></span> Planetary transit</span><span class="mono">312 · 29.9%</span></div>
+            <div class="meter"><span style="width:30%; background:var(--accent-3);"></span></div>
+          </div>
+          <div style="margin-bottom:18px;">
+            <div class="flex justify-between" style="margin-bottom:6px;"><span class="badge badge-violet"><span class="dot"></span> Eclipsing binary</span><span class="mono">421 · 40.4%</span></div>
+            <div class="meter"><span style="width:40%; background:var(--accent-2);"></span></div>
+          </div>
+          <div style="margin-bottom:18px;">
+            <div class="flex justify-between" style="margin-bottom:6px;"><span class="badge badge-blue"><span class="dot"></span> Photometric blend</span><span class="mono">188 · 18.0%</span></div>
+            <div class="meter"><span style="width:18%; background:var(--accent);"></span></div>
+          </div>
+          <div>
+            <div class="flex justify-between" style="margin-bottom:6px;"><span class="badge badge-gold"><span class="dot"></span> Stellar variability</span><span class="mono">122 · 11.7%</span></div>
+            <div class="meter"><span style="width:12%; background:var(--gold);"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel reveal">
+        <div class="panel-head"><h3>Classifier quality</h3></div>
+        <div class="panel-body">
+          <ul class="list-check">
+            <li><strong style="color:var(--text-0)">Accuracy</strong> &nbsp;— 96.4% on held-out validation set</li>
+            <li><strong style="color:var(--text-0)">Precision (transit)</strong> &nbsp;— 0.93</li>
+            <li><strong style="color:var(--text-0)">Recall (transit)</strong> &nbsp;— 0.96</li>
+            <li><strong style="color:var(--text-0)">ROC-AUC</strong> &nbsp;— 0.987</li>
+          </ul>
+          <div class="divider"></div>
+          <p class="muted" style="font-size:.9rem;">Trained on curated samples of confirmed planets, false positives and eclipsing binaries.</p>
+          <a class="btn btn-ghost btn-sm mt" href="classification.html">View confusion matrix →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Candidate table -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="flex justify-between items-center" style="margin-bottom:18px;">
+        <h2 style="font-size:1.5rem;">Top planet candidates</h2>
+        <a class="btn btn-ghost btn-sm" href="report.html">Open reports →</a>
+      </div>
+      <div class="table-wrap reveal">
+        <table>
+          <thead>
+            <tr><th>TIC ID</th><th>Class</th><th>Period (d)</th><th>Depth (ppm)</th><th>Duration (h)</th><th>SNR</th><th>Confidence</th></tr>
+          </thead>
+          <tbody>
+            <tr onclick="location.href='detection.html'"><td class="mono">TIC 261136679</td><td><span class="badge badge-teal"><span class="dot"></span>Transit</span></td><td class="mono">8.214</td><td class="mono">9 820</td><td class="mono">3.10</td><td class="mono">14.7</td><td><span class="badge badge-green"><span class="dot"></span>0.92</span></td></tr>
+            <tr onclick="location.href='detection.html'"><td class="mono">TIC 150428135</td><td><span class="badge badge-teal"><span class="dot"></span>Transit</span></td><td class="mono">3.547</td><td class="mono">4 410</td><td class="mono">2.04</td><td class="mono">11.2</td><td><span class="badge badge-green"><span class="dot"></span>0.88</span></td></tr>
+            <tr onclick="location.href='detection.html'"><td class="mono">TIC 098455702</td><td><span class="badge badge-teal"><span class="dot"></span>Transit</span></td><td class="mono">12.901</td><td class="mono">1 980</td><td class="mono">4.55</td><td class="mono">9.4</td><td><span class="badge badge-gold"><span class="dot"></span>0.79</span></td></tr>
+            <tr onclick="location.href='classification.html'"><td class="mono">TIC 077120121</td><td><span class="badge badge-violet"><span class="dot"></span>Eclipse</span></td><td class="mono">1.844</td><td class="mono">38 600</td><td class="mono">1.62</td><td class="mono">28.1</td><td><span class="badge badge-green"><span class="dot"></span>0.97</span></td></tr>
+            <tr onclick="location.href='classification.html'"><td class="mono">TIC 320004517</td><td><span class="badge badge-blue"><span class="dot"></span>Blend</span></td><td class="mono">5.220</td><td class="mono">620</td><td class="mono">2.90</td><td class="mono">6.8</td><td><span class="badge badge-gold"><span class="dot"></span>0.74</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt=""><span>ExoDetect<small>Transit Intelligence</small></span></a>
+          <p class="muted mt-sm" style="max-width:38ch;">An AI-driven pipeline for detecting and classifying exoplanet transit signals in noisy astronomical light curves.</p>
+        </div>
+        <div><h5>Pipeline</h5><a href="pipeline.html">Run pipeline</a><a href="detection.html">Detection</a><a href="classification.html">Classification</a><a href="parameters.html">Parameters</a></div>
+        <div><h5>Explore</h5><a href="dashboard.html">Dashboard</a><a href="report.html">Reports</a><a href="index.html">Overview</a></div>
+        <div><h5>Data</h5><a href="https://archive.stsci.edu/tess/tic_ctl.html" target="_blank" rel="noopener">MAST TESS archive ↗</a><a href="https://tess.mit.edu/" target="_blank" rel="noopener">TESS mission ↗</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span data-year>2026</span> ExoDetect · Problem Statement 7.</span><span class="mono">v1.0 · TESS photometry pipeline</span></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

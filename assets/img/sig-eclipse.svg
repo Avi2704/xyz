@@ -1,0 +1,8 @@
+<svg width="240" height="120" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="120" rx="10" fill="#0a0d1a"/>
+  <line x1="16" y1="100" x2="224" y2="100" stroke="#243056" stroke-width="1"/>
+  <!-- deep primary + shallow secondary -->
+  <path d="M16 38 L70 38 L86 90 L102 38 L150 38 L160 62 L170 38 L224 38"
+        fill="none" stroke="#8a5bff" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="120" y="22" fill="#d2b9ff" font-family="monospace" font-size="11" text-anchor="middle">V-shape + secondary</text>
+</svg>

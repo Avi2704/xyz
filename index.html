@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExoDetect — AI Exoplanet Transit Detection</title>
+  <meta name="description" content="AI-driven pipeline that detects and classifies exoplanet transit signals from noisy astronomical light curves.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="starfield"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.svg" alt="ExoDetect logo">
+        <span>ExoDetect<small>Transit Intelligence</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pipeline.html">Pipeline</a>
+        <a href="detection.html">Detection</a>
+        <a href="classification.html">Classification</a>
+        <a href="parameters.html">Parameters</a>
+        <a href="report.html">Report</a>
+        <a class="btn btn-primary btn-sm nav-cta" href="pipeline.html">Launch pipeline</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">● Problem Statement 7 · TESS Photometry</span>
+        <h1>Detecting <span class="gradient-text">exoplanets</span> in noisy stellar light curves</h1>
+        <p class="lead">ExoDetect is an end-to-end AI pipeline that finds faint periodic dips in TESS light curves, disentangles transits from eclipses, blends and stellar variability, and reports physical parameters with calibrated confidence.</p>
+        <div class="flex gap mt-lg">
+          <a class="btn btn-primary btn-lg" href="pipeline.html">Run the pipeline →</a>
+          <a class="btn btn-ghost btn-lg" href="dashboard.html">View dashboard</a>
+        </div>
+        <div class="flex gap-lg mt-lg">
+          <div class="stat"><span class="num" data-count="24580">0</span><span class="label">Light curves scanned</span></div>
+          <div class="stat"><span class="num" data-count="96.4" data-decimals="1" data-suffix="%">0</span><span class="label">Classifier accuracy</span></div>
+          <div class="stat"><span class="num" data-count="312">0</span><span class="label">Candidates flagged</span></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <img src="assets/img/hero.svg" alt="Planet transiting a host star with corresponding light curve dip">
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE STEPS -->
+  <section class="section">
+    <div class="container">
+      <div class="sec-head center reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>Five stages from raw flux to vetted planet</h2>
+        <p class="lead" style="margin:0 auto;">Each stage is modular, reproducible and instrumented so every detection can be traced and trusted.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <div class="circle"><img src="assets/img/icon-data.svg" alt=""></div>
+          <h4>1 · Ingest</h4>
+          <p>Load TESS FITS light curves and metadata</p>
+        </div>
+        <div class="step">
+          <div class="circle"><img src="assets/img/icon-filter.svg" alt=""></div>
+          <h4>2 · Detrend</h4>
+          <p>Remove instrument trends &amp; clip outliers</p>
+        </div>
+        <div class="step">
+          <div class="circle"><img src="assets/img/icon-detect.svg" alt=""></div>
+          <h4>3 · Detect</h4>
+          <p>BLS period search for periodic dips</p>
+        </div>
+        <div class="step">
+          <div class="circle"><img src="assets/img/icon-classify.svg" alt=""></div>
+          <h4>4 · Classify</h4>
+          <p>CNN sorts transit / eclipse / blend / variable</p>
+        </div>
+        <div class="step">
+          <div class="circle"><img src="assets/img/icon-params.svg" alt=""></div>
+          <h4>5 · Fit</h4>
+          <p>Estimate period, depth, duration + errors</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="grid grid-3 reveal">
+        <article class="card">
+          <div class="card-icon"><img src="assets/img/icon-detect.svg" alt=""></div>
+          <h3>Robust dip detection</h3>
+          <p>Box Least Squares and matched filtering surface periodic flux dips buried under detector and photon noise, even in crowded fields.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><img src="assets/img/icon-classify.svg" alt=""></div>
+          <h3>Four-class signal sorting</h3>
+          <p>A convolutional classifier separates planetary transits from eclipsing binaries, photometric blends and intrinsic stellar variability.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><img src="assets/img/icon-snr.svg" alt=""></div>
+          <h3>SNR &amp; significance</h3>
+          <p>Every event is scored with a signal-to-noise ratio and false-alarm probability so weak detections are flagged transparently.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><img src="assets/img/icon-params.svg" alt=""></div>
+          <h3>Physical parameters</h3>
+          <p>Transit model fitting recovers orbital period, transit depth and duration, with uncertainties from posterior sampling.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><img src="assets/img/icon-shield.svg" alt=""></div>
+          <h3>Calibrated confidence</h3>
+          <p>Probabilities are calibrated against a labelled validation set of confirmed planets, false positives and binaries.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><img src="assets/img/icon-report.svg" alt=""></div>
+          <h3>Shareable reports</h3>
+          <p>Auto-generated vetting reports bundle plots, parameters and methodology into a concise, reproducible summary.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA SOURCE BANNER -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="glass reveal" style="padding:36px; display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:20px;">
+          <div class="card-icon" style="margin:0;"><img src="assets/img/icon-telescope.svg" alt=""></div>
+          <div>
+            <h3>Built on public TESS data</h3>
+            <p class="muted" style="margin-top:4px;">High-cadence light curves from a single sector — 20–30k stars — sourced from the MAST archive.</p>
+          </div>
+        </div>
+        <a class="btn btn-ghost" href="https://archive.stsci.edu/tess/tic_ctl.html" target="_blank" rel="noopener">MAST TESS archive ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container text-center reveal">
+      <h2>Ready to hunt for new worlds?</h2>
+      <p class="lead" style="margin:14px auto 28px;">Walk through the full workflow — from uploading a sector to reading a vetted transit report.</p>
+      <div class="flex gap" style="justify-content:center;">
+        <a class="btn btn-primary btn-lg" href="pipeline.html">Start the pipeline</a>
+        <a class="btn btn-ghost btn-lg" href="detection.html">Explore a detection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt=""><span>ExoDetect<small>Transit Intelligence</small></span></a>
+          <p class="muted mt-sm" style="max-width:38ch;">An AI-driven pipeline for detecting and classifying exoplanet transit signals in noisy astronomical light curves.</p>
+        </div>
+        <div>
+          <h5>Pipeline</h5>
+          <a href="pipeline.html">Run pipeline</a>
+          <a href="detection.html">Detection</a>
+          <a href="classification.html">Classification</a>
+          <a href="parameters.html">Parameters</a>
+        </div>
+        <div>
+          <h5>Explore</h5>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="report.html">Reports</a>
+          <a href="index.html">Overview</a>
+        </div>
+        <div>
+          <h5>Data</h5>
+          <a href="https://archive.stsci.edu/tess/tic_ctl.html" target="_blank" rel="noopener">MAST TESS archive ↗</a>
+          <a href="https://tess.mit.edu/" target="_blank" rel="noopener">TESS mission ↗</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> ExoDetect · Problem Statement 7 · Built for research &amp; demonstration.</span>
+        <span class="mono">v1.0 · TESS photometry pipeline</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg width="860" height="300" viewBox="0 0 860 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Box Least Squares periodogram">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5b8cff"/><stop offset="1" stop-color="#8a5bff"/></linearGradient></defs>
+  <rect width="860" height="300" rx="14" fill="#0a0d1a"/>
+  <g stroke="#1b2440" stroke-width="1">
+    <line x1="60" y1="80" x2="820" y2="80"/><line x1="60" y1="140" x2="820" y2="140"/><line x1="60" y1="200" x2="820" y2="200"/>
+  </g>
+  <line x1="60" y1="40" x2="60" y2="250" stroke="#2a3457" stroke-width="1.5"/>
+  <line x1="60" y1="250" x2="820" y2="250" stroke="#2a3457" stroke-width="1.5"/>
+  <text x="22" y="150" fill="#8b96bd" font-family="monospace" font-size="12" transform="rotate(-90 22 150)">BLS power</text>
+  <text x="420" y="284" fill="#8b96bd" font-family="monospace" font-size="12" text-anchor="middle">Trial period (days)</text>
+  <text x="74" y="32" fill="#8a5bff" font-family="monospace" font-size="12">BLS PERIODOGRAM · peak @ 8.214 d</text>
+  <!-- noisy baseline -->
+  <path d="M60 232 L100 228 L130 234 L160 226 L190 233 L210 222 L240 230 L260 218 L280 231 L300 224 L320 210 L335 250 L342 130 L350 250 L370 226 L400 232 L430 224 L460 230 L490 220 L520 232 L550 226 L580 233 L610 222 L640 230 L660 200 L668 250 L672 175 L678 250 L700 230 L730 224 L760 232 L790 226 L820 232"
+        fill="none" stroke="url(#bg)" stroke-width="1.8"/>
+  <!-- main peak marker -->
+  <circle cx="342" cy="130" r="5" fill="#2fe0c0"/>
+  <line x1="342" y1="130" x2="342" y2="250" stroke="#2fe0c0" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="342" y="120" fill="#2fe0c0" font-family="monospace" font-size="11" text-anchor="middle">P₀</text>
+  <text x="672" y="165" fill="#8b96bd" font-family="monospace" font-size="10" text-anchor="middle">2·P₀</text>
+</svg>

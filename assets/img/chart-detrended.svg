@@ -1,0 +1,30 @@
+<svg width="860" height="300" viewBox="0 0 860 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Detrended light curve with detected transits">
+  <defs>
+    <linearGradient id="cd" x1="0" y1="0" x2="860" y2="0"><stop stop-color="#5b8cff"/><stop offset="0.5" stop-color="#8a5bff"/><stop offset="1" stop-color="#2fe0c0"/></linearGradient>
+  </defs>
+  <rect width="860" height="300" rx="14" fill="#0a0d1a"/>
+  <g stroke="#1b2440" stroke-width="1">
+    <line x1="60" y1="80" x2="820" y2="80"/><line x1="60" y1="130" x2="820" y2="130"/>
+    <line x1="60" y1="180" x2="820" y2="180"/><line x1="60" y1="230" x2="820" y2="230"/>
+  </g>
+  <line x1="60" y1="40" x2="60" y2="260" stroke="#2a3457" stroke-width="1.5"/>
+  <line x1="60" y1="260" x2="820" y2="260" stroke="#2a3457" stroke-width="1.5"/>
+  <text x="20" y="160" fill="#8b96bd" font-family="monospace" font-size="12" transform="rotate(-90 20 160)">Norm. flux</text>
+  <text x="420" y="288" fill="#8b96bd" font-family="monospace" font-size="12" text-anchor="middle">Time (BTJD days)</text>
+  <text x="74" y="32" fill="#2fe0c0" font-family="monospace" font-size="12">DETRENDED · 3 transits detected · SNR = 14.7</text>
+
+  <!-- transit windows -->
+  <rect x="200" y="50" width="46" height="180" rx="6" fill="#2fe0c0" opacity="0.09"/>
+  <rect x="430" y="50" width="46" height="180" rx="6" fill="#2fe0c0" opacity="0.09"/>
+  <rect x="660" y="50" width="46" height="180" rx="6" fill="#2fe0c0" opacity="0.09"/>
+
+  <!-- clean curve with 3 equal dips -->
+  <path d="M60 120 L130 121 L180 120 L205 121 L215 196 L235 197 L245 121 L300 120 L360 121 L410 120 L435 121 L445 196 L465 197 L475 121 L530 120 L590 121 L640 120 L665 121 L675 196 L695 197 L705 121 L760 120 L820 121"
+        fill="none" stroke="url(#cd)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- transit center markers -->
+  <circle cx="225" cy="197" r="4.5" fill="#2fe0c0"/><circle cx="455" cy="197" r="4.5" fill="#2fe0c0"/><circle cx="685" cy="197" r="4.5" fill="#2fe0c0"/>
+  <text x="225" y="46" fill="#2fe0c0" font-family="monospace" font-size="10" text-anchor="middle">T1</text>
+  <text x="455" y="46" fill="#2fe0c0" font-family="monospace" font-size="10" text-anchor="middle">T2</text>
+  <text x="685" y="46" fill="#2fe0c0" font-family="monospace" font-size="10" text-anchor="middle">T3</text>
+</svg>
